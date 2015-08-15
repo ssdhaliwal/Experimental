@@ -5,6 +5,7 @@
  */
 package javahpcollection;
 
+import elsu.common.*;
 import elsu.hpc.*;
 import java.util.*;
 
@@ -31,7 +32,7 @@ public class QueueTReader implements Runnable  {
     @Override
     public void run() {
         String item = "";
-        String thId = "r(" + Thread.currentThread().getId() + "), ";
+        String thId = "r(" + String.format("%4d", Thread.currentThread().getId()) + "), ";
         
         while (true) {
             try {

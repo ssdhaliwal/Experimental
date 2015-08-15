@@ -5,6 +5,7 @@
  */
 package javahpcollection;
 
+import elsu.common.*;
 import elsu.hpc.*;
 import java.text.*;
 import java.util.*;
@@ -34,7 +35,7 @@ public class QueueTWriter implements Runnable {
     public void run() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd HH:mm:ss");
         String item = "";
-        String thId = "w(" + Thread.currentThread().getId() + "), ";
+        String thId = "w(" + String.format("%4d", Thread.currentThread().getId()) + "), ";
         
         while (true) {
             try {
@@ -43,14 +44,16 @@ public class QueueTWriter implements Runnable {
                 item = thId + " item " + (getSeqId()) + ", " + sdf.format(new Date());
                 _hpArray.addItem(item);
 
-                System.out.println(item);
+                System.out.println("         " + item);
             } catch (Exception exi) {
                 System.out.println(thId + exi.getMessage());
             }
         }
     }
     
-    public synchronized long getSeqId() {
-        return _i++;
+    public synchronized String getSeqId() {
+        _i++;
+        
+        return String.format("%10d", _i);
     } 
 }
