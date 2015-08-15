@@ -1,0 +1,122 @@
+Open new repository		TestFlow
+Clone repository to local disk
+
+Create folder TestFlow under repository folder
+
+Setup GitFlow
+	Production		master
+	Development		develop
+	Feature			feature/
+	Release			release/
+	Hotfix			hotfix/
+
+local branches
+	"develop" is the current branch
+	"master"
+
+remote branches
+	"origin"
+		"HEAD"
+		"master"
+		
+Create file Text001.txt
+commit/push changes		"initial upload commit."
+
+GitFlow
+	Start New Release
+		Release name 1.0.0
+		Latest development branch
+		Note:    whdn done run "git flow release finish '1.0.0'""
+
+local branches
+	"develop"
+	"master"
+	""release""
+		"1.0.0"  is the current branch
+
+remote branches
+	"origin"
+		"develop"
+		"HEAD"
+		"master"
+
+updated the file Text001.txt
+created 10 copies of the file in release
+
+commit/push changes		"commit release changes."
+
+GitFlow
+	Finish Release
+		Release Name				1.0.0
+		Options
+			Tag with this message	initial release
+		After finishing
+			Delete branch
+			Push changes to remote
+
+	==> Merge branch "release/1.0.0" into develop
+	
+local and remote branches do not show the release branch
+local branches
+	"develop" is the current branch
+	"master"
+
+Added new file to develop branch	Test002.txt
+
+Change focus from "develop" to "master"
+	new file is not listed
+
+Change focus from "master" to "develop"
+	new file is listed
+
+Merge "develop" into "master"
+	Change focus to "master"
+	Click on merge
+		select last entry from "develop"
+		Select option "Create a new commit even if fast-forward is possible"
+		Click OK
+
+Push changes to remote
+	Select all local branches to push
+	Click Ok
+
+Change focus from "master" to "develop"
+	the listing matches
+	add copies of the Test002.txt file 10 times
+	commit the changes			"add new files copies of Test002.txt in "develop"
+
+Change focus from "develop" to "master"
+	the new files are not shown
+
+Merge "develop" into "master"
+	Change focus to "master"
+	Click on merge
+		select last entry from "develop"
+		Select option "Create a new commit even if fast-forward is possible"
+		Click OK
+
+Push changes to remote
+	Select all local branches to push
+	Click Ok
+
+Change focus from "master" to "develop"
+	the listing matches
+
+Change focus from "develop" to "master"
+	Added new file to develop branch	Test003.txt
+	Updated Test002.txt
+	commit the changes		"add new file Test003.txt and updated Test002.txt in "master"
+
+Change focus from "master" to "develop"
+	the listing does not matches
+
+Merge "master" into "develop"
+	Change focus to "develop"
+	Click on merge
+		select last entry from "develop"
+		Select option "Create a new commit even if fast-forward is possible"
+		Click OK
+
+Push changes to remote
+	Select all local branches to push
+	Click Ok
