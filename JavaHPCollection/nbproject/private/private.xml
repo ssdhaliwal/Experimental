@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/M:/GitHub/Experimental/JavaHPCollection/src/elsu/hpc/fpaDataBlock.java</file>
+            <file>file:/M:/GitHub/Experimental/JavaHPCollection/src/elsu/hpc/hpTArray.java</file>
+            <file>file:/M:/GitHub/Experimental/JavaHPCollection/src/elsu/hpc/fpaHeaderBlock.java</file>
+            <file>file:/M:/GitHub/Experimental/JavaHPCollection/src/javahpcollection/QueueTReader.java</file>
             <file>file:/M:/GitHub/Experimental/JavaHPCollection/src/javahpcollection/JavaHPCollection.java</file>
+            <file>file:/M:/GitHub/Experimental/JavaHPCollection/src/elsu/hpc/hpFilePersistenceArray.java</file>
+            <file>file:/M:/GitHub/Experimental/JavaHPCollection/src/javahpcollection/QueueTWriter.java</file>
         </group>
     </open-files>
 </project-private>

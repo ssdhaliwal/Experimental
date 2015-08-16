@@ -13,58 +13,16 @@ import java.util.*;
  * @author dhaliwal-admin
  */
 public class JavaHPCollection {
-
-    hpTArray<String> hpa = new hpTArray<>();
-    int p = 1;
-
-    public JavaHPCollection() {
-
-    }
-
-    public void run() {
-        testHPArray();
-
-        System.out.println(hpa._arrayFirst + " .. " + hpa._arrayLast);
-    }
-
-    public void testHPArray() {
-
-        for (int i = 0; i < hpa._arraySize + 1; i++) {
-            try {
-                hpa.addItem("this is a test (" + (p++) + ")");
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
-
-        String value = "";
-        while (true) {
-            try {
-                value = hpa.removeItem();
-
-                System.out.println(value);
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-                break;
-            }
-        }
-    }
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //JavaHPCollection jhpc = new JavaHPCollection();
-
-        //jhpc.run();
-        //jhpc.run();
-        //jhpc.run();
+      
+        int thReaders = 2;
+        int thWriters = 5;
         
-        int thReaders = 200;
-        int thWriters = 300;
-        
-        //hpTArray hpa = new hpTArray();
-        hpStringArray hpa = new hpStringArray(5000000);
+        hpTArray<String> hpa = new hpTArray(30);
+        //hpStringArray hpa = new hpStringArray(5000000);
 
         ArrayList<Thread> _thList = new ArrayList<>();
         QueueTWriter qtw = null;
