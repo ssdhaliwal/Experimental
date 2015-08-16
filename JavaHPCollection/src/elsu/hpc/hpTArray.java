@@ -6,15 +6,16 @@
 package elsu.hpc;
 
 import java.lang.*;
+import java.lang.reflect.*;
 import java.util.*;
 
 /**
  *
  * @author dhaliwal-admin
  */
-public class hpArray {
+public class hpTArray<T> {
 
-    public int _arraySize = 5000000; //Integer.MAX_VALUE;
+    public int _arraySize = 25; //Integer.MAX_VALUE;
 
     public Object _lockLast = new Object();
     public volatile int _arrayLast = -1;
@@ -22,13 +23,19 @@ public class hpArray {
     public volatile int _arrayFirst = -1;
     public volatile boolean _hasData = false;
 
-    public String[] _node = null;
+    public T[] _node = null;
 
-    public hpArray() {
-        _node = new String[_arraySize];
+    public hpTArray() {
+        _node = (T[])(new Object[_arraySize]);
     }
 
-    public int addItem(String value) throws Exception {
+    public hpTArray(int size) {
+        _arraySize = size;
+        
+        _node = (T[])(new Object[_arraySize]);
+    }
+
+    public int addItem(T value) throws Exception {
         int result = -1;
 
         synchronized (_lockLast) {
@@ -42,8 +49,8 @@ public class hpArray {
         return result;
     }
 
-    public String removeItem() throws Exception {
-        String result = null;
+    public T removeItem() throws Exception {
+        T result = null;
         int first = -1;
 
         synchronized (_lockFirst) {
@@ -51,7 +58,7 @@ public class hpArray {
         }
 
         result = _node[first];
-        _node[first] = "";
+        _node[first] = (T)null;
 
         return result;
     }

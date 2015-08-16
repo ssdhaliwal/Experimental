@@ -16,13 +16,13 @@ import java.util.*;
  */
 public class QueueTWriter implements Runnable {
 
-    public hpArray _hpArray = null;
+    public hpStringArray _hpArray = null;
     static volatile long _i = 0;
 
-    private static final int MIN_VALUE = 100;
+    private static final int MIN_VALUE = 10;
     private static final int MAX_VALUE = 1000;
 
-    public QueueTWriter(hpArray array) {
+    public QueueTWriter(hpStringArray array) {
         _hpArray = array;
     }
 
@@ -39,7 +39,8 @@ public class QueueTWriter implements Runnable {
         
         while (true) {
             try {
-                Thread.sleep(getRandomWait());
+                //Thread.sleep(getRandomWait());
+                Thread.sleep(0);
 
                 item = thId + " item " + (getSeqId()) + ", " + sdf.format(new Date());
                 _hpArray.addItem(item);

@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class JavaHPCollection {
 
-    hpArray hpa = new hpArray();
+    hpTArray<String> hpa = new hpTArray<>();
     int p = 1;
 
     public JavaHPCollection() {
@@ -59,14 +59,19 @@ public class JavaHPCollection {
         //jhpc.run();
         //jhpc.run();
         //jhpc.run();
-        hpArray hpa = new hpArray();
+        
+        int thReaders = 200;
+        int thWriters = 300;
+        
+        //hpTArray hpa = new hpTArray();
+        hpStringArray hpa = new hpStringArray(5000000);
 
         ArrayList<Thread> _thList = new ArrayList<>();
         QueueTWriter qtw = null;
         QueueTReader qtr = null;
         Thread th = null;
 
-        for (int i = 0; i < 300; i++) {
+        for (int i = 0; i < thWriters; i++) {
             qtw = new QueueTWriter(hpa);
             th = new Thread(qtw);
             th.start();
@@ -74,7 +79,7 @@ public class JavaHPCollection {
             _thList.add(th);
         }
 
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < thReaders; i++) {
             qtr = new QueueTReader(hpa);
             th = new Thread(qtr);
             th.start();

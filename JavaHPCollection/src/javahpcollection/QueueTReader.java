@@ -15,12 +15,12 @@ import java.util.*;
  */
 public class QueueTReader implements Runnable  {
 
-    public hpArray _hpArray = null;
+    public hpStringArray _hpArray = null;
 
-    private static final int MIN_VALUE = 100;
+    private static final int MIN_VALUE = 10;
     private static final int MAX_VALUE = 1000;
 
-    public QueueTReader(hpArray array) {
+    public QueueTReader(hpStringArray array) {
         _hpArray = array;
     }
 
@@ -36,7 +36,8 @@ public class QueueTReader implements Runnable  {
         
         while (true) {
             try {
-                Thread.sleep(getRandomWait());
+                //Thread.sleep(getRandomWait());
+                Thread.sleep(0);
                 
                 item = _hpArray.removeItem();
                 System.out.println(thId + item);
