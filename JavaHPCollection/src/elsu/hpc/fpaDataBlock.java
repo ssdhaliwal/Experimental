@@ -20,6 +20,14 @@ public class fpaDataBlock {
     public void writeDataBlock(int id, String data) {
         
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        try {
+        } finally {
+            super.finalize();
+        }
+    }
     
     @Override
     public String toString() {

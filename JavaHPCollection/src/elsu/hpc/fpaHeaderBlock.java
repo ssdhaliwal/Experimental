@@ -22,6 +22,14 @@ public class fpaHeaderBlock {
     public void writeHeaderBlock() {
         
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        try {
+        } finally {
+            super.finalize();
+        }
+    }
     
     @Override
     public String toString() {
