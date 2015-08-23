@@ -26,7 +26,7 @@ public class EntityDescriptor implements Serializable, Cloneable {
     private int _rowCount = 0;
     private int _maxRows = 0;
 
-    private ArrayList<FieldDescriptor> _fields = null;
+    private Map<String, FieldDescriptor> _fields = null;
     private ArrayList<RowDescriptor> _rows = null;
     private Map<String, Map<String, RowDescriptor>> _index = null;
 
