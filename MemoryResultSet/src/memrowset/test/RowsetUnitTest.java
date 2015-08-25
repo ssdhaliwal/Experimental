@@ -5,6 +5,8 @@
  */
 package memrowset.test;
 
+import elsu.database.rowset.RowDescriptor;
+import elsu.database.rowset.FieldDescriptor;
 import ac.core.*;
 import ac.factory.*;
 import elsu.database.*;
@@ -18,8 +20,6 @@ import javax.sql.rowset.*;
  * @author ss.dhaliwal
  */
 public class RowsetUnitTest implements IEventSubscriber {
-
-    MemoryResultSet mrs = new MemoryResultSet();
 
     public ActionFactory af = null;
 
@@ -58,31 +58,13 @@ public class RowsetUnitTest implements IEventSubscriber {
             }
 
             try {
-                WebRowSet wrs = ActionObjectStack.Cursor(rut1.af.getDbManager(),
-                        "NCS3.SPS_SITE",
-                        new DatabaseDataType[]{DatabaseDataType.dtarray}, new Object[]{new Long[]{830L, 838L}});
+                FieldDescriptor[] wrs = rut1.af.getDbManager().getDataResultSet("SELECT * FROM ncs3.field_col_types",
+                        null);
                 //System.out.println(ActionObject.toXML(wrs));
-                System.out.println(".. records selected: " + wrs.size());
+                //System.out.println(".. records selected: " + wrs.size());
 
-                Map<String, FieldDescriptor> _fields = new HashMap<String, FieldDescriptor>();
-                ResultSetMetaData wrsRSMD = wrs.getMetaData();
-                for (int i = 1; i < wrsRSMD.getColumnCount(); i++) {
-                    FieldDescriptor fd = new FieldDescriptor(
-                            wrsRSMD.getColumnName(i),
-                            (wrsRSMD.isNullable(i) == ResultSetMetaData.columnNoNulls ? false : true),
-                            wrsRSMD.isCaseSensitive(i),
-                            wrsRSMD.isReadOnly(i),
-                            wrsRSMD.isAutoIncrement(i),
-                            wrsRSMD.isCurrency(i),
-                            wrsRSMD.isSigned(i),
-                            wrsRSMD.getColumnDisplaySize(i),
-                            wrsRSMD.getPrecision(i),
-                            wrsRSMD.getScale(i),
-                            wrsRSMD.getColumnClassName(i),
-                            i);
-                }
-                
-                RowDescriptor rd = new RowDescriptor(_fields);
+                //RowDescriptor rd = new RowDescriptor(_fields);
+                for
 
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
