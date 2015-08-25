@@ -5,11 +5,10 @@
  */
 package memrowset.test;
 
-import elsu.database.rowset.RowDescriptor;
-import elsu.database.rowset.FieldDescriptor;
 import ac.core.*;
 import ac.factory.*;
 import elsu.database.*;
+import elsu.database.rowset.*;
 import elsu.events.*;
 import java.sql.*;
 import java.util.*;
@@ -58,14 +57,21 @@ public class RowsetUnitTest implements IEventSubscriber {
             }
 
             try {
-                FieldDescriptor[] wrs = rut1.af.getDbManager().getDataResultSet("SELECT * FROM ncs3.field_col_types",
+                EntityDescriptor wrs = rut1.af.getDbManager().getDataRowSet("SELECT * FROM ncs3.vwSite",
                         null);
                 //System.out.println(ActionObject.toXML(wrs));
                 //System.out.println(".. records selected: " + wrs.size());
 
                 //RowDescriptor rd = new RowDescriptor(_fields);
-                for
-
+                FieldDescriptor fd = null;
+                for (String field : wrs.getFields()) {
+                    fd = wrs.getField(field);
+                    System.out.println(fd.toString());
+                }
+                
+                for (RowDescriptor rd : wrs.getRows()) {
+                    System.out.println(rd.toString());
+                }
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
