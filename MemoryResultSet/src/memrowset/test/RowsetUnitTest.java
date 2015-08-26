@@ -8,9 +8,12 @@ package memrowset.test;
 import ac.core.*;
 import ac.factory.*;
 import com.google.gson.*;
+import com.google.gson.reflect.*;
 import elsu.database.rowset.*;
 import elsu.events.*;
 import elsu.support.*;
+import java.io.*;
+import java.lang.reflect.*;
 import java.util.*;
 
 /**
@@ -61,26 +64,27 @@ public class RowsetUnitTest implements IEventSubscriber {
                 //System.out.println(ActionObject.toXML(wrs));
                 //System.out.println(".. records selected: " + wrs.size());
 
-                //RowDescriptor rd = new RowDescriptor(_fields);
-                FieldDescriptor fd = null;
-                for (String field : wrs.getFields()) {
-                    fd = wrs.getField(field);
-                    System.out.println(fd.toString());
-                }
+                String jFields = GsonXMLStack.Object2JSon(wrs.getFields());
+                String jRows = GsonXMLStack.Object2JSon(wrs.getRows());
 
-                for (RowDescriptor rd : wrs.getRows()) {
-                    System.out.println(rd.toString());
-                }
+                //System.out.println(jFields);
+                //Type fieldType = new TypeToken<Map<String, FieldDescriptor>>() {}.getType();
+                //final Map<String, FieldDescriptor> fields = (Map<String, FieldDescriptor>) GsonXMLStack.JSon2Object(jFields, fieldType);
 
-                Gson gson = new Gson();
-                String jObj = GsonXMLStack.Object2JSon(wrs.getRows());
-                JsonParser parser = new JsonParser();
-                JsonArray jArray = parser.parse(jObj).getAsJsonArray();
-                for (JsonElement jElement : jArray) {
-                    //JsonObject jObject = (JsonObject)jElement;
-                    System.out.println(jElement);
-                }
+                //for (RowDescriptor rd : wrs.getRows()) {
+                //    System.out.println(rd.toString());
+                //}
 
+                //JsonParser parser = new JsonParser();
+                //JsonArray jArray = parser.parse(jRows).getAsJsonArray();
+                //for (JsonElement jElement : jArray) {
+                //    //JsonObject jObject = (JsonObject)jElement;
+                //    System.out.println(jElement);
+                //    RowDescriptor rd = new RowDescriptor(jFields, jElement.toString());
+                //    System.out.println(rd);
+                //}
+
+                wrs = new EntityDescriptor(jFields, jRows);
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
