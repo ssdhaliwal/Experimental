@@ -7,12 +7,11 @@ package memrowset.test;
 
 import ac.core.*;
 import ac.factory.*;
-import elsu.database.*;
+import com.google.gson.*;
 import elsu.database.rowset.*;
 import elsu.events.*;
-import java.sql.*;
+import elsu.support.*;
 import java.util.*;
-import javax.sql.rowset.*;
 
 /**
  *
@@ -68,14 +67,23 @@ public class RowsetUnitTest implements IEventSubscriber {
                     fd = wrs.getField(field);
                     System.out.println(fd.toString());
                 }
-                
+
                 for (RowDescriptor rd : wrs.getRows()) {
                     System.out.println(rd.toString());
                 }
+
+                Gson gson = new Gson();
+                String jObj = GsonXMLStack.Object2JSon(wrs.getRows());
+                JsonParser parser = new JsonParser();
+                JsonArray jArray = parser.parse(jObj).getAsJsonArray();
+                for (JsonElement jElement : jArray) {
+                    //JsonObject jObject = (JsonObject)jElement;
+                    System.out.println(jElement);
+                }
+
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-
         } catch (Exception ex) {
             // Display a message if anything goes wrong
             System.err.println("RowsetUnitTest, main, " + ex.getMessage());
