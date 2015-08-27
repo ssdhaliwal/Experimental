@@ -7,12 +7,14 @@ package memrowset.test;
 
 import ac.core.*;
 import ac.factory.*;
-import elsu.database.*;
+import com.google.gson.*;
+import com.google.gson.reflect.*;
 import elsu.database.rowset.*;
 import elsu.events.*;
-import java.sql.*;
+import elsu.support.*;
+import java.io.*;
+import java.lang.reflect.*;
 import java.util.*;
-import javax.sql.rowset.*;
 
 /**
  *
@@ -62,20 +64,30 @@ public class RowsetUnitTest implements IEventSubscriber {
                 //System.out.println(ActionObject.toXML(wrs));
                 //System.out.println(".. records selected: " + wrs.size());
 
-                //RowDescriptor rd = new RowDescriptor(_fields);
-                FieldDescriptor fd = null;
-                for (String field : wrs.getFields()) {
-                    fd = wrs.getField(field);
-                    System.out.println(fd.toString());
-                }
-                
-                for (RowDescriptor rd : wrs.getRows()) {
-                    System.out.println(rd.toString());
-                }
+                String jFields = GsonXMLStack.Object2JSon(wrs.getFields());
+                String jRows = GsonXMLStack.Object2JSon(wrs.getRows());
+
+                //System.out.println(jFields);
+                //Type fieldType = new TypeToken<Map<String, FieldDescriptor>>() {}.getType();
+                //final Map<String, FieldDescriptor> fields = (Map<String, FieldDescriptor>) GsonXMLStack.JSon2Object(jFields, fieldType);
+
+                //for (RowDescriptor rd : wrs.getRows()) {
+                //    System.out.println(rd.toString());
+                //}
+
+                //JsonParser parser = new JsonParser();
+                //JsonArray jArray = parser.parse(jRows).getAsJsonArray();
+                //for (JsonElement jElement : jArray) {
+                //    //JsonObject jObject = (JsonObject)jElement;
+                //    System.out.println(jElement);
+                //    RowDescriptor rd = new RowDescriptor(jFields, jElement.toString());
+                //    System.out.println(rd);
+                //}
+
+                wrs = new EntityDescriptor(jFields, jRows);
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-
         } catch (Exception ex) {
             // Display a message if anything goes wrong
             System.err.println("RowsetUnitTest, main, " + ex.getMessage());
