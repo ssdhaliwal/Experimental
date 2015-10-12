@@ -6,7 +6,9 @@
         <title>Tutorial: Hello Dojo!</title>
     </head>
     <body>
-        <h1 id="greeting">Hello</h1>
+        <div id="headerDiv">
+            <h1 id="greeting">Hello</h1>  
+        </div>
         <!-- configure Dojo -->
         <script>
             var dojoConfig = {
@@ -35,8 +37,10 @@
 
         <script>
             require([
-                'demo/myModule', 'ready!'
+                'dojo/on', 'dojo/dom', 'dojo/dom-style', 'dojo/mouse', 'demo/myModule', 'ready!'
             ], function (myModule) {
+                var myHeader = dom.byId('greeting');
+                
                 myModule.setText('greeting', 'Hello Dojo!');
 
                 setTimeout(function () {
