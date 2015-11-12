@@ -6,35 +6,57 @@
 package elsu.hpc;
 
 import java.lang.*;
+import java.lang.reflect.*;
 import java.util.*;
 
 /**
  *
  * @author dhaliwal-admin
  */
-public class hpArray {
+public class hpTArray<T> {
 
-    public int _arraySize = 5000000; //Integer.MAX_VALUE;
+    private int _arraySize = 25; //Integer.MAX_VALUE;
 
-    public Object _lockLast = new Object();
-    public volatile int _arrayLast = -1;
-    public Object _lockFirst = new Object();
-    public volatile int _arrayFirst = -1;
-    public volatile boolean _hasData = false;
+    private Object _lockLast = new Object();
+    private volatile int _arrayLast = -1;
+    private Object _lockFirst = new Object();
+    private volatile int _arrayFirst = -1;
+    private volatile boolean _hasData = false;
 
-    public String[] _node = null;
+    private T[] _node = null;
 
-    public hpArray() {
-        _node = new String[_arraySize];
+    public hpTArray() {
+        _node = (T[]) (new Object[_arraySize]);
     }
 
-    public int addItem(String value) throws Exception {
+    @Override
+    protected void finalize() throws Throwable {
+        try {
+            _arrayLast = -1;
+            _arrayFirst = -1;
+            
+            for (int i = 0; i < _arraySize; i++) {
+                _node[i] = null;
+            }
+        } finally {
+            super.finalize();
+        }
+    }
+
+    public hpTArray(int size) {
+        _arraySize = size;
+
+        _node = (T[]) (new Object[_arraySize]);
+    }
+
+    public int getArraySize() {
+        return this._arraySize;
+    }
+
+    public int addItem(T value) throws Exception {
         int result = -1;
 
-        synchronized (_lockLast) {
-            incrementLast();
-            result = _arrayLast;
-        }
+        result = incrementLast();
 
         _node[result] = value;      // store the data
         _hasData = true;
@@ -42,21 +64,19 @@ public class hpArray {
         return result;
     }
 
-    public String removeItem() throws Exception {
-        String result = null;
+    public T removeItem() throws Exception {
+        T result = null;
         int first = -1;
 
-        synchronized (_lockFirst) {
-            first = incrementFirst();
-        }
+        first = incrementFirst();
 
         result = _node[first];
-        _node[first] = "";
+        _node[first] = (T) null;
 
         return result;
     }
 
-    public int incrementFirst() throws Exception {
+    protected synchronized int incrementFirst() throws Exception {
         int result = -1;
 
         if (((_arrayFirst == _arrayLast)
@@ -69,12 +89,14 @@ public class hpArray {
             if (_arrayFirst == _arraySize - 1) {
                 _arrayFirst = 0;
             } else {
-                result = ++_arrayFirst;
+                ++_arrayFirst;
+                result = _arrayFirst;
             }
         }
 
         if ((result == -1) && (_hasData)) {
-            result = 0;
+            _arrayFirst = 0;
+            result = _arrayFirst;
         }
 
         //System.out.println("..F " + _arrayFirst + ":" + _arrayLast + " -"
@@ -82,7 +104,9 @@ public class hpArray {
         return result;
     }
 
-    public void incrementLast() throws Exception {
+    protected synchronized int incrementLast() throws Exception {
+        int result = -1;
+
         if (_arrayLast == _arraySize - 1) {
             if ((_arrayFirst <= 0)
                     && (_hasData)) {
@@ -93,15 +117,18 @@ public class hpArray {
                 _arrayFirst = -1;
                 _hasData = false;
 
-                incrementLast();
+                result = incrementLast();
             } else {
                 _arrayLast = 0;
+                result = _arrayLast;
             }
         } else {
             _arrayLast++;
+            result = _arrayLast;
         }
 
         //System.out.println("..L " + _arrayFirst + ":" + _arrayLast + " -"
         //        + _hasData);
+        return result;
     }
 }

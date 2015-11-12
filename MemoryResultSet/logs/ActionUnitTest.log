@@ -1,0 +1,76 @@
+[aoLogger] [23 Aug 2015 - 04:11:39]  INFO - configuration loaded. 
+[aoLogger] [23 Aug 2015 - 04:11:40]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [23 Aug 2015 - 04:11:58]  INFO - configuration loaded. 
+[aoLogger] [23 Aug 2015 - 04:11:59]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [23 Aug 2015 - 04:12:19]  INFO - configuration loaded. 
+[aoLogger] [23 Aug 2015 - 04:12:19]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [23 Aug 2015 - 04:22:29]  INFO - configuration loaded. 
+[aoLogger] [23 Aug 2015 - 04:22:30]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [24 Aug 2015 - 08:27:46]  INFO - configuration loaded. 
+[aoLogger] [24 Aug 2015 - 08:27:47]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [24 Aug 2015 - 08:27:56] ERROR - class elsu.database.DatabaseManager, getDataXML(), 0
+Invalid SQL type for column 
+[aoLogger] [24 Aug 2015 - 08:27:56] ERROR - class elsu.database.DatabaseManager, getDataXML(), 
+java.sql.SQLException: Invalid SQL type for column 
+[aoLogger] [24 Aug 2015 - 08:28:34]  INFO - configuration loaded. 
+[aoLogger] [24 Aug 2015 - 08:28:35]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [24 Aug 2015 - 08:29:15]  INFO - configuration loaded. 
+[aoLogger] [24 Aug 2015 - 08:29:16]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [24 Aug 2015 - 08:35:21]  INFO - configuration loaded. 
+[aoLogger] [24 Aug 2015 - 08:35:22]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [24 Aug 2015 - 08:52:00]  INFO - configuration loaded. 
+[aoLogger] [24 Aug 2015 - 08:52:01]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 06:48:45]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 06:48:46]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 06:49:10]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 06:49:10]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 06:49:34]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 06:49:35]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 06:50:07]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 06:50:08]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 06:52:48]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 06:52:49]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 06:54:17]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 06:54:18]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 06:56:39]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 06:56:40]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 08:48:48]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 08:48:48]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 08:49:09]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 08:49:10]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 08:58:53]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 08:58:54]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 08:59:39]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 08:59:40]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 09:08:07]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 09:08:08]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [25 Aug 2015 - 09:11:21]  INFO - configuration loaded. 
+[aoLogger] [25 Aug 2015 - 09:11:22]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 01:50:49]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 01:50:50]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 01:52:19]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 01:52:20]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 01:53:26]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 01:53:27]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 01:55:22]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 01:55:23]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 01:55:42]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 01:55:43]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 01:56:18]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 01:56:19]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 01:56:49]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 01:56:49]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 01:57:09]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 01:57:10]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 03:10:07]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 03:10:08]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 03:13:27]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 03:13:28]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 03:30:05]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 03:30:06]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 03:42:40]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 03:42:40]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 03:45:54]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 03:45:54]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 
+[aoLogger] [26 Aug 2015 - 03:52:21]  INFO - configuration loaded. 
+[aoLogger] [26 Aug 2015 - 03:52:21]  INFO - class ac.factory.ActionFactory, initialize(), sync provider installed. 

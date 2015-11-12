@@ -19,3 +19,7 @@ dist/
 nbdist/
 nbactions.xml
 nb-configuration.xml
+<<<<<<< HEAD
+=======
+/Dojo01App/nbproject/private/
+>>>>>>> cce03231aa4741e1d96dcd9f10b2586ed0da7ce0
