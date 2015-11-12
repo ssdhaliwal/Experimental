@@ -5,6 +5,7 @@
  */
 package javahpcollection;
 
+import elsu.common.*;
 import elsu.hpc.*;
 import java.util.*;
 
@@ -14,12 +15,13 @@ import java.util.*;
  */
 public class QueueTReader implements Runnable  {
 
-    public hpArray _hpArray = null;
+    public hpTArray<String> _hpArray = null;
+    //public hpStringArray _hpArray = null;
 
-    private static final int MIN_VALUE = 100;
-    private static final int MAX_VALUE = 1000;
+    private static final int MIN_VALUE = 50;
+    private static final int MAX_VALUE = 250;
 
-    public QueueTReader(hpArray array) {
+    public QueueTReader(hpTArray<String> array) {
         _hpArray = array;
     }
 
@@ -31,11 +33,12 @@ public class QueueTReader implements Runnable  {
     @Override
     public void run() {
         String item = "";
-        String thId = "r(" + Thread.currentThread().getId() + "), ";
+        String thId = "r(" + String.format("%4d", Thread.currentThread().getId()) + "), ";
         
         while (true) {
             try {
                 Thread.sleep(getRandomWait());
+                //Thread.sleep(0);
                 
                 item = _hpArray.removeItem();
                 System.out.println(thId + item);

@@ -5,6 +5,7 @@
  */
 package javahpcollection;
 
+import elsu.common.*;
 import elsu.hpc.*;
 import java.text.*;
 import java.util.*;
@@ -15,13 +16,14 @@ import java.util.*;
  */
 public class QueueTWriter implements Runnable {
 
-    public hpArray _hpArray = null;
+    public hpTArray<String> _hpArray = null;
+    //public hpStringArray _hpArray = null;
     static volatile long _i = 0;
 
-    private static final int MIN_VALUE = 100;
-    private static final int MAX_VALUE = 1000;
+    private static final int MIN_VALUE = 50;
+    private static final int MAX_VALUE = 250;
 
-    public QueueTWriter(hpArray array) {
+    public QueueTWriter(hpTArray<String> array) {
         _hpArray = array;
     }
 
@@ -34,23 +36,26 @@ public class QueueTWriter implements Runnable {
     public void run() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd HH:mm:ss");
         String item = "";
-        String thId = "w(" + Thread.currentThread().getId() + "), ";
+        String thId = "w(" + String.format("%4d", Thread.currentThread().getId()) + "), ";
         
         while (true) {
             try {
                 Thread.sleep(getRandomWait());
+                //Thread.sleep(0);
 
                 item = thId + " item " + (getSeqId()) + ", " + sdf.format(new Date());
                 _hpArray.addItem(item);
 
-                System.out.println(item);
+                System.out.println("         " + item);
             } catch (Exception exi) {
                 System.out.println(thId + exi.getMessage());
             }
         }
     }
     
-    public synchronized long getSeqId() {
-        return _i++;
+    public synchronized String getSeqId() {
+        _i++;
+        
+        return String.format("%10d", _i);
     } 
 }
